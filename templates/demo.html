@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+<!--变量替换-->
+<h1>{{ name }}</h1>
+
+<!--在循环中有一个特殊的变量 loop，可以使用 loop.index获取当前元素的索引
+loop.index 索引是从 1 开始计算的
+loop.index0 索引是从 0 开始计算的
+-->
+{% for n in numbers %}
+<span class="number">{{n}}, index: {{loop.index0 }}</span>
+{% endfor %}
+
+{% for t in ts %}
+<p>{{ t.title }}</p>
+{% else %}
+<p>没有 todos</p>
+{% endfor %}
+
+<!--循环加对象访问-->
+<div class="user-container">
+    {% for u in users %}
+    <div class="user-cell">
+        <span>{{ u.name }}</span>
+        <span>{{ u.id }}</span>
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    {% if show %}
+    <div>show this div</div>
+    {% endif %}
+</div>
+</body>
+</html>
